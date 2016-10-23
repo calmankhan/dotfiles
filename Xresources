@@ -1,0 +1,121 @@
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!   Filename .Xresources                                                     
+!
+!       Maintainer: Salman Khan <calmankhan2@gmail.com>                 !
+!        URL: http://github.com/calmankhan/dotfiles                     !
+!                                                                            
+! Sections:                                                                  
+!
+!   01. General ................. General Urxvt behavior                     
+!
+!   02. Theme/Colors ............ Colors, etc.                        
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! 01. General                                                                
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!
+! extension
+!
+! matcher for clickable urls and vtwheel for scroll in man, less, etc.
+URxvt.perl-lib: /usr/lib/urxvt/perl/
+
+URxvt.perl-ext-common: 	default,matcher
+URxvt.keysym.M-u: perl:matcher:list
+URxvt.url-launcher:     /usr/bin/firefox
+URxvt.matcher.button: 	1
+URxvt.url-select.underline: true
+URxvt.colorUL: 		#7780a1
+
+
+!
+! fonts
+!
+! xft fonts
+URxvt*font:                xft:Ubuntu Mono:pixelsize=16:antialias=true:hinting=true
+URxvt*boldFont:            xft:Ubuntu Mono:pixelsize=16:bold:antialias=true:hinting=true
+URxvt*italicFont:          xft:Ubuntu Mono:pixelsize=16:italic:antialias=true:hinting=true
+URxvt*boldItalicFont:      xft:Ubuntu Mono:pixelsize=16:bold:italic:antialias=true:hinting=true
+!URxvt*letterSpace:         -1
+
+urxvt*depth: 32
+urxvt*background:rgba:2000/2000/2000/dddd
+urxvt*foreground: #F3F4F5
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! 02. Theme/Colors                                                             
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+! black
+*color0: #2E3436
+*color8: #515c5f
+
+! red
+*color1: #CC0000
+*color9: #ff1a1a
+
+! green
+*color2: #4E9A06
+*color10: #73e409
+
+! yellow
+*color3: #C4A000
+*color11: #ffd312
+
+! blue
+*color4: #4167AC
+*color12: #7090c9
+
+! magenta
+*color5: #75507B
+*color13: #9d73a4
+
+! cyan
+*color6: #06989A
+*color14: #09e1e4
+
+! white
+*color7: #D3D7CF
+*color15: #f9faf9
+
+URxvt.scrollBar:           false
+
+!URxvt*fading:              30
+!URxvt*cursorColor:	#ffd312
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!			General xterm behavior                     	     !
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+XTerm*Background: black
+XTerm*Foreground: white
+XTerm*faceName: Terminus
+XTerm*faceSize: 11
+XTerm*internalBorder: 3
+XTerm*loginShell: true
+XTerm*scrollBar: false
+XTerm*scrollKey: true
+XTerm*saveLines: 1000
+XTerm*multiClickTime: 250
+
+XTerm*eightBitInput:    false
+XTerm*metaSendsEscape:  true
+XTerm*utf8:     1
+XTerm*cursorBlink:      true
+XTerm*cursorOffTime:    300
+XTerm*cursorOnTime:     300
+XTerm*cursorUnderLine:  true
+!XTerm*geometry: 110x31
