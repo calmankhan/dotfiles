@@ -13,8 +13,7 @@ bindsym $mod+shift+x exec i3lock -i ~/.config/i3/background.png -c '#000000' -o 
 bindsym $mod+Control+Shift+x exec i3lock -i ~/.config/i3/background.png -c '#000000' -o '#228b22' -w '#8A0707' -l '#ffffff' -e  && systemctl suspend
 
 # Autolock
-exec --no-startup-id xautolock -time 10 -locker "i3lock -i ~/.config/i3/background.png -c '#000000' -o '#228b22' -w '#8A0707' -l '#ffffff' -e"
-#-killer "systemctl suspend" -killtime 10 &
+exec --no-startup-id xautolock -time 10 -locker "i3lock -i ~/.config/i3/background.png -c '#000000' -o '#228b22' -w '#8A0707' -l '#ffffff' -e" -killer "systemctl suspend" -killtime 10 &
 
 # thin borders
 hide_edge_borders both
