@@ -1,0 +1,287 @@
+#mod
+
+set $mod Mod4
+
+# Font
+
+font pango:ubuntu 11
+
+# Lock
+bindsym $mod+shift+x exec i3lock -i ~/.config/i3/background.png -c '#000000' -o '#228b22' -w '#8A0707' -l '#ffffff' -e
+
+# Suspend
+bindsym $mod+Control+Shift+x exec i3lock -i ~/.config/i3/background.png -c '#000000' -o '#228b22' -w '#8A0707' -l '#ffffff' -e  && systemctl suspend
+
+# Autolock
+exec --no-startup-id xautolock -time 10 -locker "i3lock -i ~/.config/i3/background.png -c '#000000' -o '#228b22' -w '#8A0707' -l '#ffffff' -e"
+#-killer "systemctl suspend" -killtime 10 &
+
+# thin borders
+hide_edge_borders both
+
+
+# drag floating windows to their wanted position
+floating_modifier $mod
+
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+
+# focus the child container
+#bindsym $mod+d focus child
+
+
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: ♫"
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: "
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+ 
+# reload the configuration file
+bindsym $mod+Alt+c reload
+
+
+# restart i3
+bindsym $mod+Shift+r restart
+
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec /home/salman/.config/i3/scripts/exit_menu.sh
+
+# Reboot
+bindsym $mod+Shift+Delete exec /home/salman/.config/i3/scripts/reboot.sh
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+# resize mode
+bindsym $mod+r mode "resize"
+
+
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
+
+#disable window titlebars 
+for_window [class="^.*"] border pixel 0
+
+
+#gaps
+workspace $workspace2 gaps inner 5
+workspace $workspace2 gaps inner 10
+
+# Start bar
+bar {
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position Top
+	colors {
+		background $bg-color
+	    	separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
+}
+
+
+# sticky window
+bindsym $mod+Shift+s sticky toggle
+
+
+# floating
+#for_window [class="qTox"] floating enable
+#for_window [class="Pavucontrol"] floating enable
+#for_window [class="Skype"] floating enable
+
+
+# default workspaces
+assign [class="Firefox"] 	→ $workspace1
+assign [class="Chromium"] 	→ $workspace4
+assign [class="mpv"] 		→ $workspace5
+assign [class="Gimp"]		→ $workspace7
+assign [class="skypeforlinux"]  → $workspace10
+assign [class="Viewnior"]	→ $workspace7
+
+
+# workspace default monitors
+#workspace $workspace1 output DVI-I-2
+#workspace $workspace2 output DVI-I-2
+#workspace $workspace3 output DVI-I-2
+#workspace $workspace4 output DVI-I-2
+#workspace $workspace5 output DVI-I-2
+#workspace $workspace6 output DVI-I-2
+#workspace $workspace9 output DVI-I-2
+#workspace $workspace10 output DVI-I-2
+
+#KEY-Bindings
+
+#bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+#bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
+# Alsa mixer controls
+bindsym XF86AudioRaiseVolume exec  amixer -q set Master 5%+ unmute  #increase sound volume
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute  #decrease sound volume
+bindsym XF86AudioMute exec amixer -q set Master mute  # mute sound
+
+# Media player controls
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioPause exec mpc pause
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+bindsym XF86Display exec switch-screens
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec ~/.config/i3/scripts/toggletouchpad.sh # toggle touchpad
+
+#Mount Windows
+#bindsym $mod+Shift+w exec sudo mount -t ntfs-3g /dev/sda4 /media/Windows
+
+# Applications
+bindsym $mod+shift+f exec firefox
+bindsym $mod+shift+c exec chromium
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+q kill
+bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 1366 -padding 345 -opacity "90" -bw 0 -font "Ubuntu 18" -separator-style none -hide-scrollbar 
+bindsym $mod+Shift+v exec --no-startup-id  urxvt -e ncmpcpp -s visualizer &
+bindsym $mod+Shift+m exec mpd
+bindsym $mod+Shift+n exec mpd --kill
+
+# Startup
+exec_always --no-startup-id feh --bg-scale /home/salman/.config/i3/background.png
+#exec qbittorrent --no-splash
+#exec_always --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+#exec --no-startup-id spotify
+#exec --no-startup-id skypeforlinux
+
+# Keys
+#exec_always xmodmap -e "clear lock" #disable caps lock switch
+#exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+
+
+exec --no-startup-id compton -f
+
