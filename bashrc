@@ -1,7 +1,7 @@
 ##############################################################################
 #   Filename: .bashrc                                                        #
 # Maintainer: Salman Khan <calmankhan2@gmail.com>                            #
-#        URL: http://github.com/michaeljsmalley/dotfiles                     #
+#        URL: http://github.com/calmankhan/dotfiles                          #
 #                                                                            #
 #                                                                            #
 # Sections:                                                                  #
